@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Mr. Plumber Preview</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a service-shop page. Left-aligned copy, with a paper work order as the hero's signature object. */
+  :root{
+    --teal:#0E4A44;        /* shop sign, primary */
+    --teal-deep:#08302C;
+    --brass:#E3B341;       /* fittings, calls to action */
+    --paper:#FBF8F1;       /* work-order paper */
+    --page:#F1F4F2;        /* page ground, slight green bias */
+    --ink:#14211F;
+    --muted:#55625F;
+    --rule:#D6DED9;
+    --white:#FFFFFF;
+    --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+    --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--page);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--display);line-height:1;margin:0;text-wrap:balance}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+  .preview{background:var(--ink);color:#DCE6E2;font-size:14px;text-align:center;padding:9px 16px}
+  .preview b{color:var(--brass);font-weight:600}
+
+  /* Header */
+  header.site{background:var(--teal);color:var(--white)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand-mark{width:44px;height:44px;border-radius:50%;background:var(--brass);display:grid;place-items:center;flex:none}
+  .brand b{display:block;font-family:var(--display);font-weight:900;font-size:28px;letter-spacing:.01em;line-height:1}
+  .brand small{display:block;font-size:12.5px;color:#BFD6D1;letter-spacing:.02em}
+  nav.links{display:flex;gap:26px;font-size:15px;font-weight:500}
+  nav.links a{text-decoration:none;color:#D5E6E2}
+  nav.links a:hover{color:var(--white)}
+  .head-call{display:flex;flex-direction:column;align-items:flex-end;text-decoration:none}
+  .head-call span{font-size:12px;color:#BFD6D1}
+  .head-call b{font-family:var(--display);font-weight:800;font-size:26px;color:var(--brass);line-height:1}
+
+  /* Hero */
+  .hero{background:var(--teal);color:var(--white);position:relative;overflow:hidden}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start;padding-block:56px 64px}
+  .hero-grid > *{min-width:0}
+  .hero h1{font-size:clamp(52px,7.4vw,96px);font-weight:900;text-transform:uppercase;letter-spacing:.005em}
+  .hero h1 span{display:block;color:var(--brass)}
+  .hero p.lead{font-size:19px;color:#D7E7E3;max-width:40ch;margin:22px 0 0}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:700;font-size:16px;text-decoration:none;padding:15px 22px;border-radius:8px;border:2px solid transparent;cursor:pointer}
+  .btn-brass{background:var(--brass);color:var(--ink)}
+  .btn-brass:hover{background:#F0C55C}
+  .btn-line{border-color:rgba(255,255,255,.5);color:var(--white)}
+  .btn-line:hover{border-color:var(--white)}
+  .badges{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:14.5px;color:#CFE2DD}
+  .badges span{display:flex;align-items:center;gap:8px}
+
+  /* Work order: the signature object */
+  .ticket{background:var(--paper);color:var(--ink);border-radius:6px;box-shadow:0 24px 50px rgba(4,26,23,.38);transform:rotate(1.6deg);position:relative;animation:drop .9s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes drop{from{transform:translateY(-24px) rotate(4deg);opacity:0}to{transform:rotate(1.6deg);opacity:1}}
+  .ticket::before{content:"";position:absolute;top:-1px;left:0;right:0;height:14px;background:radial-gradient(circle at 10px 0,var(--teal) 6px,transparent 6.5px) 0 0/20px 14px repeat-x}
+  .t-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:30px 28px 16px;border-bottom:2px solid var(--ink)}
+  .t-head h2{font-size:30px;font-weight:900;text-transform:uppercase}
+  .t-head small{font-size:13px;color:var(--muted);text-align:right;line-height:1.35}
+  .t-rows{list-style:none;margin:0;padding:6px 28px}
+  .t-rows li{display:grid;grid-template-columns:28px 1fr;gap:12px;padding:13px 0;border-bottom:1px dashed #CFC8B8}
+  .t-rows li:last-child{border-bottom:0}
+  .t-box{width:22px;height:22px;border:2px solid var(--ink);border-radius:3px;display:grid;place-items:center;margin-top:2px}
+  .t-rows b{display:block;font-weight:700}
+  .t-rows span{font-size:14.5px;color:var(--muted)}
+  .t-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:var(--ink);color:var(--white);padding:16px 28px;border-radius:0 0 6px 6px}
+  .t-foot span{font-size:13px;color:#B9C9C5}
+  .t-foot a{font-family:var(--display);font-weight:800;font-size:28px;color:var(--brass);text-decoration:none;line-height:1}
+
+  /* Brands */
+  .brands{padding-block:6px 4px}
+  .brands-inner{display:flex;flex-wrap:wrap;align-items:center;gap:10px 30px;padding-block:22px;border-bottom:1px solid var(--rule)}
+  .brands-inner p{margin:0;font-size:14px;color:var(--muted);flex:1 1 100%}
+  .brands-inner strong{font-family:var(--display);font-weight:800;font-size:24px;color:#3D4C49;letter-spacing:.02em}
+
+  section{padding-block:80px}
+  .sec-head{max-width:660px;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(40px,5vw,60px);font-weight:900;text-transform:uppercase}
+  .sec-head p{color:var(--muted);margin:12px 0 0;font-size:18px}
+
+  /* Services */
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .svc-grid > *{min-width:0}
+  .svc{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:28px;display:flex;flex-direction:column}
+  .svc .ico{width:48px;height:48px;border-radius:10px;background:var(--teal);display:grid;place-items:center;margin-bottom:18px}
+  .svc h3{font-size:32px;font-weight:800;text-transform:uppercase}
+  .svc p{color:var(--muted);margin:10px 0 16px;font-size:15.5px}
+  .svc ul{list-style:none;margin:0;padding:0}
+  .svc li{padding:9px 0;border-top:1px solid var(--rule);font-size:15.5px;display:flex;gap:10px;align-items:baseline}
+  .svc li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brass);flex:none;transform:translateY(-2px)}
+
+  /* Process (a real sequence) */
+  .process{background:var(--white);border-block:1px solid var(--rule)}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:s;list-style:none;margin:0;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-top:64px}
+  .steps li::before{content:counter(s);position:absolute;top:0;left:0;font-family:var(--display);font-weight:900;font-size:58px;line-height:1;color:var(--teal)}
+  .steps li::after{content:"";position:absolute;top:28px;left:46px;right:-14px;height:3px;background:var(--brass);border-radius:2px}
+  .steps li:last-child::after{display:none}
+  .steps b{display:block;font-size:18px;margin-bottom:6px}
+  .steps span{color:var(--muted);font-size:15.5px}
+
+  /* Area */
+  .area-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .state{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:28px}
+  .state h3{font-size:34px;font-weight:900;text-transform:uppercase;display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .state h3 small{font-family:var(--body);font-size:14px;font-weight:600;color:var(--muted);text-transform:none}
+  .towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .towns span{background:var(--page);border:1px solid var(--rule);border-radius:999px;padding:6px 14px;font-size:15px}
+  .area-note{margin-top:18px;color:var(--muted)}
+
+  /* Reviews placeholder */
+  .reviews-box{border:2px dashed #A9BAB5;border-radius:10px;padding:36px;text-align:center;color:var(--muted)}
+  .reviews-box b{display:block;color:var(--ink);font-size:20px;margin-bottom:6px}
+
+  /* Contact */
+  .contact{background:var(--teal);color:var(--white)}
+  .contact .sec-head p{color:#CFE2DD}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+  .contact-grid > *{min-width:0}
+  .info{display:grid;gap:0}
+  .info div{padding:16px 0;border-top:1px solid rgba(255,255,255,.18)}
+  .info dt{font-size:13.5px;color:#A9C6C0;margin-bottom:2px}
+  .info dd{margin:0;font-size:18px}
+  .info .big{font-family:var(--display);font-weight:800;font-size:40px;color:var(--brass);text-decoration:none;line-height:1.1}
+  .form-card{background:var(--paper);color:var(--ink);border-radius:10px;padding:30px}
+  .form-card h3{font-size:34px;font-weight:900;text-transform:uppercase}
+  .form-card .sub{color:var(--muted);margin:6px 0 4px;font-size:15px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row2 > *{min-width:0}
+  form label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+  form input,form select,form textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #C9C2B2;border-radius:8px;background:var(--white);color:var(--ink)}
+  form textarea{min-height:100px;resize:vertical}
+  form .btn{margin-top:18px;width:100%;justify-content:center}
+  .sent{background:#E6F3EC;border:1px solid #93C3A6;color:#1C5435;border-radius:8px;padding:14px;margin:14px 0 0;font-size:15px}
+  [hidden]{display:none!important}
+
+  footer{background:var(--teal-deep);color:#A9C6C0;font-size:15px;padding-block:34px 100px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+  footer b{color:var(--white)}
+
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--brass);color:var(--ink);text-align:center;text-decoration:none;font-family:var(--display);font-weight:900;font-size:24px;letter-spacing:.02em;padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-shadow:0 -4px 18px rgba(8,48,44,.3)}
+
+  @media (max-width:960px){
+    .hero-grid,.contact-grid{grid-template-columns:1fr}
+    .ticket{transform:none;max-width:560px}
+    @keyframes drop{from{transform:translateY(-24px);opacity:0}to{transform:none;opacity:1}}
+    .svc-grid{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr;row-gap:36px}
+    .steps li:nth-child(2)::after{display:none}
+  }
+  @media (max-width:720px){
+    nav.links{display:none}
+    .svc-grid,.area-grid{grid-template-columns:1fr}
+    section{padding-block:60px}
+    .callbar{display:block}
+    .head-call span{display:none}
+  }
+  @media (max-width:520px){
+    .head-call{display:none}
+    .steps{grid-template-columns:1fr}
+    .steps li::after{display:none}
+    .row2{grid-template-columns:1fr}
+    .t-head,.t-rows,.t-foot{padding-left:20px;padding-right:20px}
+    .t-head{flex-direction:column;align-items:flex-start}
+    .t-head small{text-align:left}
+    .form-card,.svc,.state{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="preview" role="note"><b>Design preview</b> prepared for Mr. Plumber Inc. by <span>[Your studio name]</span>. This is not the company's official website.</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Mr. Plumber Inc., home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.5c3.6 4.6 6 8.1 6 11.1A6 6 0 0 1 6 13.6c0-3 2.4-6.5 6-11.1z" fill="#0E4A44"/></svg>
+      </span>
+      <span><b>Mr. Plumber</b><small>Plumbing · Heating · Cooling</small></span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#area">Service area</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="head-call" href="tel:+19132381498"><span>Call for an estimate</span><b>(913) 238-1498</b></a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Kansas City's plumber<span>since 1999.</span></h1>
+        <p class="lead">Plumbing, heating and cooling for homes and businesses on both sides of the state line. Locally and family owned, with the price told to you up front.</p>
+        <div class="hero-actions">
+          <a class="btn btn-brass" href="tel:+19132381498">Call (913) 238-1498</a>
+          <a class="btn btn-line" href="#contact">Request a call back</a>
+        </div>
+        <div class="badges">
+          <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#E3B341"/><path d="M4.5 8.3l2.2 2.2L11.6 5.6" stroke="#0E4A44" stroke-width="1.8" fill="none"/></svg>Family owned</span>
+          <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#E3B341"/><path d="M4.5 8.3l2.2 2.2L11.6 5.6" stroke="#0E4A44" stroke-width="1.8" fill="none"/></svg>Residential &amp; commercial</span>
+          <span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="8" fill="#E3B341"/><path d="M4.5 8.3l2.2 2.2L11.6 5.6" stroke="#0E4A44" stroke-width="1.8" fill="none"/></svg>Kansas &amp; Missouri</span>
+        </div>
+      </div>
+
+      <aside class="ticket" aria-label="What you get when you call Mr. Plumber">
+        <div class="t-head">
+          <h2>Work order</h2>
+          <small>Mr. Plumber Inc.<br>Est. 1999</small>
+        </div>
+        <ul class="t-rows">
+          <li><span class="t-box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.3l2.8 2.8L11.5 3.8" stroke="#14211F" stroke-width="2.2" fill="none"/></svg></span><div><b>Estimate over the phone</b><span>Describe the problem and get a number before anyone drives out.</span></div></li>
+          <li><span class="t-box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.3l2.8 2.8L11.5 3.8" stroke="#14211F" stroke-width="2.2" fill="none"/></svg></span><div><b>Upfront, transparent pricing</b><span>You know the price before the work starts.</span></div></li>
+          <li><span class="t-box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.3l2.8 2.8L11.5 3.8" stroke="#14211F" stroke-width="2.2" fill="none"/></svg></span><div><b>Email answered within 24 hours</b><span>Prefer writing? We reply the next business day at the latest.</span></div></li>
+          <li><span class="t-box" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2.5 7.3l2.8 2.8L11.5 3.8" stroke="#14211F" stroke-width="2.2" fill="none"/></svg></span><div><b>Warranty on most jobs</b><span>Manufacturer and labor warranties on most of the services we handle.</span></div></li>
+        </ul>
+        <div class="t-foot"><span>Mon–Fri, 8:30 am – 5:00 pm</span><a href="tel:+19132381498">(913) 238-1498</a></div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="brands">
+    <div class="wrap brands-inner">
+      <p>The brands we install and service</p>
+      <strong>Gerber</strong><strong>Moen</strong><strong>Delta</strong><strong>Bradford White</strong><strong>Goodman</strong><strong>Zoeller</strong>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What we fix</h2>
+        <p>One crew for the water, the drains and the air in your building. Our team trains every year to keep up with new systems and equipment.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M3 6h10v5h5a4 4 0 0 1 4 4v7h-5v-6h-4v2H3z" fill="#E3B341"/></svg></span>
+          <h3>Plumbing</h3>
+          <p>Repairs and installs for the pipes and fixtures you use every day.</p>
+          <ul>
+            <li>Plumbing repairs</li>
+            <li>Water heater installation</li>
+            <li>Gas line repair</li>
+            <li>Toilet repair &amp; replacement</li>
+            <li>Outside faucets</li>
+            <li>Sump pumps</li>
+            <li>Backflow testing</li>
+          </ul>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="8" fill="none" stroke="#E3B341" stroke-width="3"/><path d="M13 9v8M9 13h8" stroke="#E3B341" stroke-width="2.4"/></svg></span>
+          <h3>Drains &amp; sewer</h3>
+          <p>From a slow sink to a main line that keeps backing up.</p>
+          <ul>
+            <li>Drain cleaning</li>
+            <li>Hydro jetting</li>
+            <li>Sewer inspections</li>
+            <li>Sewer repairs</li>
+          </ul>
+        </article>
+        <article class="svc">
+          <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="4" y="4" width="18" height="18" rx="3" fill="none" stroke="#E3B341" stroke-width="2.6"/><path d="M8 10h10M8 13h10M8 16h10" stroke="#E3B341" stroke-width="2"/></svg></span>
+          <h3>Heating &amp; cooling</h3>
+          <p>Installation, repair and maintenance for furnaces and air conditioning.</p>
+          <ul>
+            <li>Furnace installation &amp; repair</li>
+            <li>A/C installation &amp; repair</li>
+            <li>Heating maintenance</li>
+            <li>Cooling maintenance</li>
+            <li>Residential &amp; commercial</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>How a job goes</h2>
+        <p>No surprises between the first call and the final bill.</p>
+      </div>
+      <ol class="steps">
+        <li><b>Tell us what's wrong</b><span>Call (913) 238-1498, or send a request online and we'll call you back.</span></li>
+        <li><b>Get your estimate</b><span>For many jobs we can give you a price over the phone.</span></li>
+        <li><b>Approve the price</b><span>The price is set before work begins, so the bill matches the quote.</span></li>
+        <li><b>We fix it, with a warranty</b><span>Most services carry manufacturer and labor warranties.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="area">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Both sides of State Line</h2>
+        <p>Based in Kansas City, Kansas, serving the metro in two states.</p>
+      </div>
+      <div class="area-grid">
+        <div class="state">
+          <h3>Kansas <small>9 cities</small></h3>
+          <div class="towns"><span>Overland Park</span><span>Olathe</span><span>Shawnee</span><span>Lenexa</span><span>Stilwell</span><span>Mission Hills</span><span>Leawood</span><span>Mission</span><span>Prairie Village</span></div>
+        </div>
+        <div class="state">
+          <h3>Missouri <small>7 cities</small></h3>
+          <div class="towns"><span>North Kansas City</span><span>Liberty</span><span>Gladstone</span><span>Lee's Summit</span><span>Grandview</span><span>Independence</span><span>Parkville</span></div>
+        </div>
+      </div>
+      <p class="area-note">Not on the list? Nearby towns are usually covered too. Call and ask.</p>
+    </div>
+  </section>
+
+  <section id="reviews" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><h2>What customers say</h2></div>
+      <div class="reviews-box">
+        <b>Your Google reviews appear here</b>
+        In the finished site, this section shows Mr. Plumber's real customer reviews.
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Get it fixed</h2>
+        <p>Calling is fastest. Online requests get a call back, and emails are answered within 24 hours.</p>
+      </div>
+      <div class="contact-grid">
+        <dl class="info">
+          <div><dt>Phone</dt><dd><a class="big" href="tel:+19132381498">(913) 238-1498</a></dd></div>
+          <div><dt>Shop</dt><dd>3057 Merriam Ln<br>Kansas City, KS 66106</dd></div>
+          <div><dt>Hours</dt><dd>Monday – Friday, 8:30 am – 5:00 pm<br>Closed weekends</dd></div>
+          <div><dt>Serving</dt><dd>The Kansas City metro in Kansas and Missouri</dd></div>
+        </dl>
+        <div class="form-card">
+          <h3>Request a call back</h3>
+          <p class="sub">Tell us the problem and the best number to reach you.</p>
+          <form id="req" novalidate>
+            <div class="row2">
+              <div><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name"></div>
+              <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+            </div>
+            <label for="f-type">What do you need?</label>
+            <select id="f-type" name="type">
+              <option>Plumbing repair</option>
+              <option>Water heater</option>
+              <option>Drain or sewer</option>
+              <option>Heating</option>
+              <option>Air conditioning</option>
+              <option>Something else</option>
+            </select>
+            <label for="f-msg">Describe the problem (optional)</label>
+            <textarea id="f-msg" name="message"></textarea>
+            <button class="btn btn-brass" type="submit">Request a call back</button>
+            <p class="sent" id="sent" role="status" hidden>Request received. In the live site this goes straight to Mr. Plumber's office. (Preview only: nothing was sent.)</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Mr. Plumber Inc.</b> · Locally and family owned since 1999<br>3057 Merriam Ln, Kansas City, KS 66106</div>
+    <div><a href="tel:+19132381498">(913) 238-1498</a></div>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+19132381498">Call (913) 238-1498</a>
+
+<script>
+  document.getElementById('req').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('sent').hidden = false;
+    this.reset();
+  });
+</script>
+</body>
+</html>
