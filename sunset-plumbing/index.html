@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sunset Plumbing, Heating & Cooling — Design Preview</title>
+<meta name="description" content="Design preview of a new website for Sunset Plumbing, Heating & Cooling, Junction City, KS. Not the official website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dusk:#26214A;      /* deep evening sky */
+    --dusk-2:#3A2F63;
+    --glow:#F4A93B;      /* sun on the horizon */
+    --ember:#E0663F;     /* lower band of the sunset */
+    --sky:#F3F1F7;       /* pale page background */
+    --ink:#1B1A26;
+    --muted:#5D5A6E;
+    --line:#DCD8E6;
+    --white:#FFFFFF;
+    --radius:10px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--sky);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:"Archivo",sans-serif;font-stretch:112%;line-height:1.08;margin:0;letter-spacing:-.01em}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* Preview notice */
+  .preview{background:var(--ink);color:#E9E6F2;font-size:14px;text-align:center;padding:9px 16px}
+  .preview strong{color:var(--glow);font-weight:600}
+
+  /* Header */
+  header.site{background:var(--dusk);color:var(--white)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand svg{flex:none}
+  .brand b{font-family:"Archivo",system-ui,sans-serif;font-stretch:118%;font-weight:800;font-size:20px;display:block;line-height:1.1}
+  .brand span{font-size:13px;color:#C9C3E0}
+  nav.links{display:flex;gap:26px;font-size:15px}
+  nav.links a{text-decoration:none;color:#DDD8EE}
+  nav.links a:hover{color:var(--white)}
+  .call-top{font-family:"Archivo",system-ui,sans-serif;font-stretch:110%;font-weight:700;text-decoration:none;background:var(--glow);color:var(--ink);padding:10px 16px;border-radius:999px;white-space:nowrap}
+
+  /* Hero: the sunset itself is the page's signature */
+  .hero{position:relative;background:linear-gradient(180deg,var(--dusk) 0%,var(--dusk-2) 38%,#7A3F5E 62%,var(--ember) 82%,var(--glow) 100%);color:var(--white);overflow:hidden}
+  .hero .wrap{position:relative;z-index:2;padding-top:72px;padding-bottom:210px}
+  .hero p.lead{font-size:19px;color:#E7E2F5;max-width:34ch;margin:18px 0 0}
+  .hero h1{font-size:clamp(38px,6vw,68px);font-weight:800;max-width:15ch}
+  .bignum{display:inline-block;margin-top:34px;font-family:"Archivo",system-ui,sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(40px,8.5vw,96px);line-height:1;text-decoration:none;color:var(--white);letter-spacing:-.02em}
+  .bignum:hover{color:#FFE2B3}
+  .bignum small{display:block;font-family:"Public Sans",system-ui,sans-serif;font-stretch:100%;font-size:15px;font-weight:500;letter-spacing:0;color:#E7E2F5;margin-top:10px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .btn{display:inline-block;font-family:"Archivo",system-ui,sans-serif;font-stretch:110%;font-weight:700;font-size:16px;text-decoration:none;padding:14px 22px;border-radius:999px;border:2px solid transparent;cursor:pointer}
+  .btn-sun{background:var(--glow);color:var(--ink)}
+  .btn-sun:hover{background:#FFBE5C}
+  .btn-ghost{border-color:rgba(255,255,255,.55);color:var(--white);background:transparent}
+  .btn-ghost:hover{border-color:var(--white)}
+  .horizon{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto;z-index:1;display:block}
+  .sun{position:absolute;right:10%;bottom:58px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#FFD58A 0%,var(--glow) 55%,rgba(244,169,59,0) 70%);z-index:0;animation:rise 1.6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{transform:translateY(90px);opacity:0}to{transform:none;opacity:1}}
+
+  /* Promise strip */
+  .promise{background:var(--ink);color:var(--white)}
+  .promise ul{list-style:none;margin:0 auto;padding:22px 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .promise li{font-size:15px;color:#CFCAE0}
+  .promise li b{display:block;font-family:"Archivo",system-ui,sans-serif;font-stretch:115%;font-size:20px;color:var(--white);font-weight:700}
+
+  section{padding:84px 0}
+  .sec-head{max-width:640px;margin-bottom:40px}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:800}
+  .sec-head p{color:var(--muted);margin:12px 0 0}
+
+  /* Services */
+  .services{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .svc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .svc h3{font-size:26px;font-weight:800;display:flex;align-items:center;gap:12px}
+  .svc p{color:var(--muted);margin:12px 0 18px}
+  .svc ul{margin:0;padding:0;list-style:none;columns:2;column-gap:20px}
+  .svc li{padding:8px 0;border-top:1px solid var(--line);break-inside:avoid;font-size:15.5px}
+  .emerg{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:var(--dusk);color:var(--white);border-radius:var(--radius);padding:26px 30px}
+  .emerg h3{font-size:24px;font-weight:800}
+  .emerg p{margin:6px 0 0;color:#D6D0EA}
+
+  /* About */
+  .about{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start}
+  .year{font-family:"Archivo",system-ui,sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(80px,12vw,150px);line-height:.9;color:var(--dusk);letter-spacing:-.03em}
+  .year span{display:block;font-family:"Public Sans",system-ui,sans-serif;font-stretch:100%;font-size:17px;font-weight:600;letter-spacing:0;color:var(--muted);margin-top:14px}
+  .about p{margin:0 0 16px;max-width:60ch}
+  .facts{list-style:none;padding:0;margin:24px 0 0}
+  .facts li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+  .facts svg{flex:none;margin-top:3px}
+
+  /* Reviews placeholder */
+  .reviews-box{border:2px dashed #B9B2CF;border-radius:var(--radius);padding:34px;text-align:center;color:var(--muted);background:rgba(255,255,255,.5)}
+  .reviews-box b{display:block;color:var(--ink);font-family:"Archivo",system-ui,sans-serif;font-stretch:112%;font-size:20px;margin-bottom:6px}
+
+  /* Area + contact */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+  .card h3{font-size:24px;font-weight:800;margin-bottom:14px}
+  .dl{margin:0}
+  .dl div{display:grid;grid-template-columns:110px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--line)}
+  .dl dt{color:var(--muted);font-size:15px}
+  .dl dd{margin:0}
+  form label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+  form input,form select,form textarea{width:100%;font:inherit;font-size:16px;padding:12px 14px;border:1px solid #C8C2D8;border-radius:8px;background:var(--white);color:var(--ink)}
+  form textarea{min-height:110px;resize:vertical}
+  form .btn{margin-top:18px;width:100%}
+  .form-note{font-size:14px;color:var(--muted);margin-top:12px}
+  .sent{display:none;background:#EAF6EC;border:1px solid #9BCBA4;color:#1F5A2B;border-radius:8px;padding:14px;margin-top:14px;font-size:15px}
+
+  footer{background:var(--ink);color:#BDB7D1;padding:40px 0 100px;font-size:15px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+  footer b{color:var(--white)}
+
+  /* Mobile call bar */
+  .callbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:none;background:var(--glow);text-align:center;padding:14px;font-family:"Archivo",system-ui,sans-serif;font-stretch:115%;font-weight:800;font-size:19px;text-decoration:none;color:var(--ink);box-shadow:0 -4px 18px rgba(27,26,38,.25)}
+
+  @media (max-width:880px){
+    nav.links{display:none}
+    .services,.contact-grid,.about-grid{grid-template-columns:1fr}
+    .about-grid{gap:24px}
+    .promise ul{grid-template-columns:1fr;gap:12px}
+    .sun{width:150px;height:150px;right:6%;bottom:40px}
+    .hero .wrap{padding-top:52px;padding-bottom:170px}
+    section{padding:60px 0}
+    .callbar{display:block}
+  }
+  @media (max-width:520px){
+    .svc ul{columns:1}
+    .call-top{display:none}
+    .dl div{grid-template-columns:1fr;gap:2px}
+    .svc,.card{padding:22px}
+  }
+</style>
+</head>
+<body>
+
+<div class="preview" role="note">
+  <strong>Design preview</strong> prepared for Sunset Plumbing, Heating &amp; Cooling by <span>[Your studio name]</span>. This is not the company's official website.
+</div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Sunset Plumbing, Heating & Cooling, home">
+      <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+        <circle cx="21" cy="25" r="11" fill="#F4A93B"/>
+        <rect x="0" y="25" width="42" height="17" fill="#26214A"/>
+        <rect x="4" y="29" width="34" height="3" rx="1.5" fill="#E0663F"/>
+        <rect x="9" y="35" width="24" height="3" rx="1.5" fill="#E0663F" opacity=".7"/>
+      </svg>
+      <div><b>Sunset</b><span>Plumbing, Heating &amp; Cooling</span></div>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="call-top" href="tel:+17853755755">785-375-5755</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="wrap">
+      <h1>Plumbing, heating and air for Junction City homes.</h1>
+      <p class="lead">Local master plumbers since 1982. Same-day service, and someone to call when it can't wait until morning.</p>
+      <a class="bignum" href="tel:+17853755755">785-375-5755<small>Tap to call. Emergency service available.</small></a>
+      <div class="hero-actions">
+        <a class="btn btn-sun" href="tel:+17853755755">Call now</a>
+        <a class="btn btn-ghost" href="#contact">Request service online</a>
+      </div>
+    </div>
+    <svg class="horizon" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+      <!-- Flint Hills skyline with a water tower and grain elevator -->
+      <path fill="#1B1A26" d="M0 112 C140 96 260 104 380 92 C520 80 640 98 760 90 L760 90 L760 54 L772 54 L772 30 L800 30 L800 54 L812 54 L812 90 C900 86 980 94 1060 86 L1060 60 L1072 60 L1072 46 L1080 40 L1088 46 L1088 60 L1100 60 L1100 84 C1220 80 1330 92 1440 86 L1440 170 L0 170 Z"/>
+      <rect x="1074" y="62" width="2" height="22" fill="#1B1A26"/>
+      <rect x="1084" y="62" width="2" height="22" fill="#1B1A26"/>
+      <path fill="#26214A" d="M0 140 C240 128 480 136 720 130 C960 124 1200 134 1440 128 L1440 170 L0 170 Z"/>
+    </svg>
+  </section>
+
+  <div class="promise">
+    <ul class="wrap">
+      <li><b>Since 1982</b>Serving Junction City for over four decades</li>
+      <li><b>Same-day service</b>Call in the morning, fixed by the afternoon when we can</li>
+      <li><b>One call for both</b>Plumbing and HVAC from the same team</li>
+    </ul>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What we fix and install</h2>
+        <p>Homes in Junction City and the surrounding area, from a dripping faucet to a full heating and cooling system.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <h3>
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M4 6h12v6h6a4 4 0 0 1 4 4v10h-6V18h-4v2H4z" fill="#26214A"/><circle cx="23" cy="28" r="1.6" fill="#F4A93B"/></svg>
+            Plumbing
+          </h3>
+          <p>Our local master plumbers handle new construction, new fixtures, upkeep and repairs.</p>
+          <ul>
+            <li>Leaks and pipe repair</li>
+            <li>Water heaters</li>
+            <li>Drains and clogs</li>
+            <li>Toilets, sinks and faucets</li>
+            <li>Fixture installation</li>
+            <li>New construction plumbing</li>
+          </ul>
+        </article>
+        <article class="svc">
+          <h3>
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="3" y="5" width="24" height="20" rx="3" fill="#26214A"/><circle cx="15" cy="15" r="6" fill="none" stroke="#F4A93B" stroke-width="2.5"/><path d="M15 9v12M9 15h12" stroke="#F4A93B" stroke-width="2"/></svg>
+            Heating &amp; cooling
+          </h3>
+          <p>Installation and repair for the systems that get you through Kansas summers and winters.</p>
+          <ul>
+            <li>Furnace repair</li>
+            <li>Air conditioning repair</li>
+            <li>New system installation</li>
+            <li>Heat pumps</li>
+            <li>Seasonal tune-ups</li>
+            <li>Residential systems</li>
+          </ul>
+        </article>
+      </div>
+      <div class="emerg">
+        <div>
+          <h3>No heat, no water, or a burst pipe?</h3>
+          <p>Emergency service is available. Call and tell us what's happening.</p>
+        </div>
+        <a class="btn btn-sun" href="tel:+17853755755">Call 785-375-5755</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="year">1982<span>The year Sunset started serving Junction City</span></div>
+      <div>
+        <h2 style="font-size:clamp(28px,3.6vw,40px);font-weight:800;margin-bottom:18px">A local shop on East 5th Street</h2>
+        <p>Sunset Plumbing, Heating &amp; Cooling has been fixing pipes, furnaces and air conditioners in Junction City for more than forty years. You call our shop, you talk to people who know the town and its houses.</p>
+        <p>We take on everything from a single fixture to new construction, and we handle plumbing and HVAC under one roof, so you don't need two companies for one problem.</p>
+        <ul class="facts">
+          <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#F4A93B"/><path d="M5 9.5l2.5 2.5L13 6.5" stroke="#1B1A26" stroke-width="2" fill="none"/></svg>Local master plumbers</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#F4A93B"/><path d="M5 9.5l2.5 2.5L13 6.5" stroke="#1B1A26" stroke-width="2" fill="none"/></svg>Same-day service when the schedule allows</li>
+          <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#F4A93B"/><path d="M5 9.5l2.5 2.5L13 6.5" stroke="#1B1A26" stroke-width="2" fill="none"/></svg>Emergency work available</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>What neighbors say</h2>
+      </div>
+      <div class="reviews-box">
+        <b>Your Google reviews appear here</b>
+        In the finished site, this section pulls in Sunset's real customer reviews.
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Get in touch</h2>
+        <p>Call for the fastest answer, or send a request and we'll call you back.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Sunset Plumbing, Heating &amp; Cooling</h3>
+          <dl class="dl">
+            <div><dt>Phone</dt><dd><a href="tel:+17853755755">785-375-5755</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:sunsetjcks@gmail.com">sunsetjcks@gmail.com</a></dd></div>
+            <div><dt>Shop</dt><dd>236 E 5th Street<br>Junction City, KS 66441</dd></div>
+            <div><dt>Hours</dt><dd>Mon–Fri, 8 am–5 pm<br>Emergency service available</dd></div>
+            <div><dt>Service area</dt><dd>Junction City and the surrounding area</dd></div>
+          </dl>
+        </div>
+        <div class="card">
+          <h3>Request service</h3>
+          <form id="req" novalidate>
+            <label for="n">Your name</label>
+            <input id="n" name="name" autocomplete="name" required>
+            <label for="p">Phone</label>
+            <input id="p" name="phone" type="tel" autocomplete="tel" required>
+            <label for="t">What do you need help with?</label>
+            <select id="t" name="type">
+              <option>Plumbing repair</option>
+              <option>Water heater</option>
+              <option>Heating</option>
+              <option>Air conditioning</option>
+              <option>Something else</option>
+            </select>
+            <label for="m">Details (optional)</label>
+            <textarea id="m" name="message"></textarea>
+            <button class="btn btn-sun" type="submit">Send request</button>
+            <p class="sent" id="sent" role="status">Request sent. In the live site, this goes straight to Sunset's inbox. (Preview only: nothing was sent.)</p>
+            <p class="form-note">For emergencies, please call instead.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Sunset Plumbing, Heating &amp; Cooling</b><br>236 E 5th Street, Junction City, KS 66441</div>
+    <div>Serving Junction City since 1982 · <a href="tel:+17853755755">785-375-5755</a></div>
+  </div>
+</footer>
+
+<a class="callbar" href="tel:+17853755755">Call 785-375-5755</a>
+
+<script>
+  document.getElementById('req').addEventListener('submit', function(e){
+    e.preventDefault();
+    var s = document.getElementById('sent');
+    s.style.display = 'block';
+    this.reset();
+  });
+</script>
+</body>
+</html>
